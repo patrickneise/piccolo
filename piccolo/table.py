@@ -308,7 +308,7 @@ class Table(metaclass=TableMetaclass):
                 if isinstance(column, Email):
                     email_columns.append(column)
 
-                if isinstance(column, Secret):
+                if isinstance(column, Secret) or column._meta.params.get("secret"):
                     secret_columns.append(column)
 
                 if isinstance(column, ForeignKey):
