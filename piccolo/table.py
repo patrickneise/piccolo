@@ -82,7 +82,7 @@ class TableMeta:
     foreign_key_columns: t.List[ForeignKey] = field(default_factory=list)
     primary_key: Column = field(default_factory=Column)
     json_columns: t.List[t.Union[JSON, JSONB]] = field(default_factory=list)
-    secret_columns: t.List[Secret] = field(default_factory=list)
+    secret_columns: t.List[Column] = field(default_factory=list)
     auto_update_columns: t.List[Column] = field(default_factory=list)
     tags: t.List[str] = field(default_factory=list)
     help_text: t.Optional[str] = None
