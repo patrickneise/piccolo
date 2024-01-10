@@ -268,7 +268,7 @@ class Table(metaclass=TableMetaclass):
         default_columns: t.List[Column] = []
         non_default_columns: t.List[Column] = []
         foreign_key_columns: t.List[ForeignKey] = []
-        secret_columns: t.List[Secret] = []
+        secret_columns: t.List[Column] = []
         json_columns: t.List[t.Union[JSON, JSONB]] = []
         email_columns: t.List[Email] = []
         auto_update_columns: t.List[Column] = []
@@ -308,7 +308,7 @@ class Table(metaclass=TableMetaclass):
                 if isinstance(column, Email):
                     email_columns.append(column)
 
-                if isinstance(column, Secret) or column._meta.params.get("secret"):
+                if isinstance(column, Secret) or column._meta.secret:
                     secret_columns.append(column)
 
                 if isinstance(column, ForeignKey):
